@@ -14,7 +14,7 @@ public class Algoritmos_Java {
     public static void main(String[] args) {
         Random gerador = new Random();
 
-        int tamanho = 50000;
+        int tamanho = 1000000;
 
         int vQuick[] = new int[tamanho];
         int vSelection[] = new int[tamanho];
@@ -22,8 +22,8 @@ public class Algoritmos_Java {
 
         int n = 0;
 
-        for (int i = 0; i < 50000; i++) {
-            n = gerador.nextInt(100000);
+        for (int i = 0; i < 1000000; i++) {
+            n = gerador.nextInt(1500000);
             vQuick[i] = n;
             vSelection[i] = n;
             vShell[i] = n;
@@ -69,9 +69,9 @@ public class Algoritmos_Java {
 //            System.out.print(", ");
 //        }
 
-        System.out.println(String.format("\n\nQuickSort : %02d segundos  e %02d milisegundos", (tempFinalQuick - tempoQuick) / 60, (tempFinalQuick - tempoQuick) % 60));
-        System.out.println(String.format("\n\nSelectionSort : %02d segundos  e %02d milisegundos", (tempFinalSelection - tempoSelection) / 60, (tempFinalSelection - tempoSelection) % 60));
-        System.out.println(String.format("\n\n ShellSort: %02d segundos  e %02d milisegundos", (tempFinalShell - tempoShell) / 60, (tempFinalShell - tempoShell) % 60));
+        System.out.println(String.format("\n\nQuickSort : %02d segundos  e %02d milisegundos", (tempFinalQuick - tempoQuick) / 1000, (tempFinalQuick - tempoQuick) % 1000));
+        System.out.println(String.format("\n\nSelectionSort : %02d segundos  e %02d milisegundos", (tempFinalSelection - tempoSelection) / 1000, (tempFinalSelection - tempoSelection) % 1000));
+        System.out.println(String.format("\n\n ShellSort: %02d segundos  e %02d milisegundos", (tempFinalShell - tempoShell) / 1000, (tempFinalShell - tempoShell) % 1000));
     }
 
 }
