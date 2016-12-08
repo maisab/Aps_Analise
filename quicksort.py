@@ -1,7 +1,7 @@
 #Fonte: https://rosettacode.org/wiki/Sorting_algorithms/Quicksort#Python
-  
+
+from random import randint
 import time
-ini = time.time()
 
 def quickSort(arr):
     less = []
@@ -22,8 +22,20 @@ def quickSort(arr):
         more = quickSort(more)
         return less + pivotList + more
  
-a = [4, 65, 2, -31, 0, 99, 83, 782, 1]
-a = quickSort(a)
+lista = []
+tamanho = 50000
+for i in range(tamanho):
+    lista.append(randint(1,100000))
+
+ini = time.time()
+lista = quickSort(lista)
 fim = time.time()
+
+print("Tamanha da entrada: ", tamanho)
 print("Tempo de Execução: ", fim-ini)
-print(a)
+# print(lista)
+
+
+
+
+
