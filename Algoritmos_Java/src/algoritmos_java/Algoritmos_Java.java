@@ -1,9 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package algoritmos_java;
+
+import java.util.Random;
 
 /**
  *
@@ -15,38 +12,66 @@ public class Algoritmos_Java {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        Random gerador = new Random();
 
-        long tempoInicial = System.currentTimeMillis();
+        int tamanho = 50000;
+
+        int vQuick[] = new int[tamanho];
+        int vSelection[] = new int[tamanho];
+        int vShell[] = new int[tamanho];
+
+        int n = 0;
+
+        for (int i = 0; i < 50000; i++) {
+            n = gerador.nextInt(100000);
+            vQuick[i] = n;
+            vSelection[i] = n;
+            vShell[i] = n;
+        }
 
         System.out.println("\n\n-----------------Quick--------------\n");
-        int[] v1 = {10, 34, 2, 56, 7, 67, 88, 42};
-        QuickSort.quickSort(v1, 0, v1.length - 1);
-        for (int i : v1) {
-            System.out.print(i);
-            System.out.print(", ");
-        }
+
+        long tempoQuick = System.currentTimeMillis();
+        QuickSort.quickSort(vQuick, 0, vQuick.length - 1);
+        long tempFinalQuick = System.currentTimeMillis();
+
+        System.out.println("Tempo Quick : " + tempoQuick);
+        System.out.println("Tempo Final : " + tempFinalQuick);
+//        for (int i : vQuick) {
+//            System.out.print(i);
+//            System.out.print(", ");
+//        }
 
         System.out.println("\n\n-----------------Selection-----------\n");
 
-        int[] v2 = {10, 34, 2, 56, 7, 67, 88, 42};
-        int[] v3 = SelectionSort.doSelectionSort(v2);
-        for (int i : v3) {
-            System.out.print(i);
-            System.out.print(", ");
-        }
-        System.out.println("\n\n-----------------Shell-----------\n");
-        int[] v4 = {10, 34, 2, 56, 7, 67, 88, 42};
-        ShellSort.shellSort(v4);
+//        int[] v2 = {10, 34, 2, 56, 7, 67, 88, 42};
+        long tempoSelection = System.currentTimeMillis();
+        int[] v3 = SelectionSort.doSelectionSort(vSelection);
+        long tempFinalSelection = System.currentTimeMillis();
 
-        for (int i : v4) {
-            System.out.print(i);
-            System.out.print(", ");
-        }
+        System.out.println("Tempo Selection : " + tempoSelection);
+        System.out.println("Tempo Final  : " + tempFinalSelection);
+        //        for (int i : v3) {
+        //            System.out.print(i);
+        //            System.out.print(", ");
+        //        }
+        System.out.println("\n\n-----------------Shell--------------\n");
+//        int[] v4 = {10, 34, 2, 56, 7, 67, 88, 42};
 
-//        System.out.println("\n\nO metodo executou em " + (System.currentTimeMillis() - tempoInicial));
-        long tempFinal = System.currentTimeMillis();
-        long dif = (tempFinal - tempoInicial);
-        System.out.println(String.format("\n\n%02d segundos  e %02d milisegundos", dif / 60, dif % 60));
+        long tempoShell = System.currentTimeMillis();
+        ShellSort.shellSort(vShell);
+        long tempFinalShell = System.currentTimeMillis();
+//
+        System.out.println("Tempo Shell : " + tempoShell);
+        System.out.println("Tempo Final  : " + tempFinalShell);
+//        for (int i : v4) {
+//            System.out.print(i);
+//            System.out.print(", ");
+//        }
+
+        System.out.println(String.format("\n\nQuickSort : %02d segundos  e %02d milisegundos", (tempFinalQuick - tempoQuick) / 60, (tempFinalQuick - tempoQuick) % 60));
+        System.out.println(String.format("\n\nSelectionSort : %02d segundos  e %02d milisegundos", (tempFinalSelection - tempoSelection) / 60, (tempFinalSelection - tempoSelection) % 60));
+        System.out.println(String.format("\n\n ShellSort: %02d segundos  e %02d milisegundos", (tempFinalShell - tempoShell) / 60, (tempFinalShell - tempoShell) % 60));
     }
 
 }
