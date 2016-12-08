@@ -1,7 +1,7 @@
 #Fonte: https://rosettacode.org/wiki/Sorting_algorithms/Shell_sort
 
+from random import randint
 import time
-ini = time.time()
 
 def shell(seq):
     inc = len(seq) // 2
@@ -13,7 +13,15 @@ def shell(seq):
             seq[i] = el
         inc = 1 if inc == 2 else int(inc * 5.0 / 11)
  
-data = [22, 7, 2, -5, 8, 4]
-shell(data)
-print("Tempo de Execução: ", fim-ini
-print (data)
+lista = []
+tamanho = 50000
+for i in range(tamanho):
+    lista.append(randint(1,100000))
+
+ini = time.time()
+shell(lista)
+fim = time.time()
+
+print("Tamanha da entrada: ", tamanho)
+print("Tempo de Execução: ", fim-ini)
+# print(lista)

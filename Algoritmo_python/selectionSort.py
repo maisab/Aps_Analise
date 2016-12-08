@@ -1,7 +1,7 @@
 #Fonte: http://interactivepython.org/runestone/static/pythonds/SortSearch/TheSelectionSort.html
 
+from random import randint
 import time
-ini = time.time()
 
 def selectionSort(alist):
    for fillslot in range(len(alist)-1,0,-1):
@@ -14,7 +14,15 @@ def selectionSort(alist):
        alist[fillslot] = alist[positionOfMax]
        alist[positionOfMax] = temp
 
-alist = [54,26,93,17,77,31,44,55,20]
-selectionSort(alist)
-print("Tempo de Execução: ", fim-ini
-print(alist)
+lista = []
+tamanho = 10000
+for i in range(tamanho):
+    lista.append(randint(1,10000))
+
+ini = time.time()
+selectionSort(lista)
+fim = time.time()
+
+print("Tamanha da entrada: ", tamanho)
+print("Tempo de Execução: ", fim-ini)
+# print(lista)
